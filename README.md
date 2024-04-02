@@ -37,7 +37,9 @@ For the Kaggle competition, the evaluation will focus on the mean Average Accura
 
 ## Formula
 
+```markdown
 MAP = \frac{\sum_{q=1}^{Q} AveP(q)}{Q}
+```
 
 
 ## Conclusion
