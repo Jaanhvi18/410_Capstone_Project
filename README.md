@@ -34,6 +34,12 @@ We will use the dataset provided by the [Kaggle Image Matching Challenge 2024](h
 
 For the Kaggle competition, the evaluation will focus on the mean Average Accuracy (mAA) of the registered camera centers. The process will involve detailed testing and refinement to align the camera poses with the ground truth data provided by the competition.
 
+
+## Formula
+
+MAP = \frac{\sum_{q=1}^{Q} AveP(q)}{Q}
+
+
 ## Conclusion
 
 This project seeks to push the boundaries of 2-D reconstruction from unstructured image collections, leveraging advanced machine learning techniques to address complex real-world challenges. Through our participation in the Kaggle Image Matching Challenge 2024, we aim to contribute meaningful advancements in the field of computer vision and image processing.
