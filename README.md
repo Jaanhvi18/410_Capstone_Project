@@ -37,7 +37,7 @@ For the Kaggle competition, the evaluation will focus on the mean Average Accura
 
 ## Formula
 
-![Mean average precision formula](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/350px-Precisionrecall.svg.png)
+![Mean average precision formula])
 
 MAP = \frac{\sum_{q=1}^{Q} AveP(q)}{Q}
 
