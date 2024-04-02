@@ -1,45 +1,39 @@
-# 410_Capstone_Project
+# COSC 410 Final Project: 2-D Reconstruction from Unstructured Image Collections
 
-Submissions are evaluated on the mean Average Accuracy (mAA) of the registered camera centers C=−RTT
-. Given the set of cameras of a scene, parameterized by their rotation matrices R
- and translation vectors T
-, and the hidden ground truth, we compute the best similarity transformation T
- (i.e. scale, rotation and translation altogether) that is able to register onto the ground-truth the highest number of cameras starting from triplets of corresponding camera centers.
+## Project Overview
 
-A camera is registered if ||Cg−T(C)||<t
-, where Cg
- is the ground-truth camera center corresponding to C
- and t
- is a given threshold. Using a RANSAC-like approach, all the possible (N3)
- feasible similarity transformations T′
- that can be derived by the Horn's method on triplets of corresponding camera centers (C,Cg)
- are verified exhaustively, where N
- is the number of cameras in the scene. Each transformation T′
- is further refined into T′′
- by registering again the camera centers by the Horn's method, but including at this time the previous registered cameras together with the initial triplets. The best model T
- among all T′′
- with the highest number of registered cameras is finally returned.
+This project focuses on using machine learning algorithms to accurately reconstruct 2-D scenes from unstructured collections of images. Such reconstructions are vital for various applications like virtual tourism, urban planning, autonomous navigation, and historical preservation. Our team aims to tackle the question: "How can machine learning algorithms be effectively utilized to generate accurate 2-D reconstructions from unstructured collections of images?" We will be participating in the Kaggle Image Matching Challenge 2024 to apply and test our methodologies.
 
-Assuming that ri
- is the percentage of the cameras in a scene, excluding the original camera center triplets, successfully registered by Ti
- setting a threshold ti
-, the mAA for that scene is computed by averaging ri
- among several thresholds ti
-. The thresholds ti
- employed range from roughly 1 cm to 1 m according to the kind of scene. The final score is obtained by averaging the mAA among all the scenes in the dataset.
+## Motivation
 
-Submission File
-For each image ID in the test set, you must predict its pose. The file should contain a header and have the following format:
+The motivation behind this project is to improve various real-world applications through enhanced 2-D reconstructions. These include creating more immersive photo tourism experiences, aiding in the preservation of historical sites, solving the challenges of navigating through repetitive structures, integrating complex natural environments into reconstructions, and accurately representing transparent and reflective surfaces.
 
-image_path,dataset,scene,rotation_matrix,translation_vector
-da1/sc1/images/im1.png,da1,sc1,0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9,0.1;0.2;0.3
-da1/sc2/images/im2.png,da1,sc1,0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9,0.1;0.2;0.3
-etc
-The rotation_matrix (a 3x3 matrix) and translation_vector (a 3-D vector) are written as ;-separated vectors. Matrices are flattened into vectors in row-major order. Note that this metric does not require the intrinsics (the calibration matrix K
-), usually estimated along with R
- and T
- during the 3D reconstruction process.
+## Dataset
 
-Rows that correspond to images without a predicted pose must contain at least one nan value in the corresponding rotation_matrix or translation_vector columns:
+We will use the dataset provided by the [Kaggle Image Matching Challenge 2024](https://www.kaggle.com/competitions/image-matching-challenge-2024/data), which consists of a wide range of images to test our algorithms for accuracy and efficiency in 2-D reconstruction.
 
-dax/scy/images/im_unregistered.png,dax,scy,0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;nan,0.1;0.2;0.3
+## Methodology
+
+- **Model Creation**: Utilizing Convolutional Neural Networks (CNNs) for image analysis and feature extraction.
+- **Model Testing and Evaluation**: Assessing model performance using the mean Average Accuracy (mAA) of the registered camera centers, with detailed criteria provided by the Kaggle competition.
+- **Data Processing**: Cleaning and preparing the image data for optimal model training and testing.
+
+## Timeline and Division of Labor
+
+| Task                    | Time Required | Expected Completion Date | Person       |
+|-------------------------|---------------|--------------------------|--------------|
+| Data cleaning           | 30 mins       | 5th April                | Kaijie       |
+| Model Creation          | 4 days        | 5th April                | Oliver, Spencer |
+| Model Testing           | 5 days        | 12th April               | Kaijie, Jaanvi |
+| Evaluation Metric Development | 1 day   | 15th April               | All          |
+| Pilot Result Presentation | 1 day       | 16th April               | All          |
+| Result Analysis         | 1 day         | 16th April               | All          |
+| Poster Creation & Preparation | 7 days  | 26th April               | All          |
+
+## Evaluation Criteria
+
+For the Kaggle competition, the evaluation will focus on the mean Average Accuracy (mAA) of the registered camera centers. The process will involve detailed testing and refinement to align the camera poses with the ground truth data provided by the competition.
+
+## Conclusion
+
+This project seeks to push the boundaries of 2-D reconstruction from unstructured image collections, leveraging advanced machine learning techniques to address complex real-world challenges. Through our participation in the Kaggle Image Matching Challenge 2024, we aim to contribute meaningful advancements in the field of computer vision and image processing.
